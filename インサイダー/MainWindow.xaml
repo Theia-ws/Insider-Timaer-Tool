@@ -1,0 +1,70 @@
+﻿<Window x:Class="インサイダー.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:インサイダー"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350.121" Width="466.935" Loaded="Window_Loaded">
+	<Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+		<Grid x:Name="playersGrid" Height="30" VerticalAlignment="Top" Margin="10,10,10,0">
+			<Label Content="プレイヤー人数" FontSize="18" FontFamily="Meiryo UI"/>
+			<Grid Margin="150,0,0,0">
+				<Border BorderBrush="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" BorderThickness="1,0,0,0"/>
+			</Grid>
+			<Border BorderBrush="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" BorderThickness="2"/>
+		</Grid>
+		<Grid Height="30" Margin="10,38,10,0" VerticalAlignment="Top">
+			<Label Content="インサイダー" FontSize="18" FontFamily="Meiryo UI"/>
+			<Grid Margin="150,0,0,0">
+				<Border BorderBrush="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" BorderThickness="1,0,0,0"/>
+				<Label x:Name="insiderPlayerNumberLabel" Content="未抽選" HorizontalAlignment="Left" Width="99" Margin="1,0,0,0" FontSize="18" FontFamily="Meiryo UI"/>
+				<Border BorderBrush="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" BorderThickness="1,0,0,0" HorizontalAlignment="Right" Width="150"/>
+				<Button x:Name="insiderButton" Content="インサイダー抽選" HorizontalAlignment="Right" Margin="0,2,2,1" Width="147" Click="insiderButton_Click"/>
+			</Grid>
+			<Border BorderBrush="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" BorderThickness="2,2,2,1"/>
+		</Grid>
+		<Grid Height="30" Margin="10,67,10,0" VerticalAlignment="Top">
+			<Label Content="マスター" FontSize="18" FontFamily="Meiryo UI"/>
+			<Grid Margin="150,0,0,0">
+				<Border BorderBrush="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" BorderThickness="1,0,0,0"/>
+				<Label x:Name="masterPlayerNumberLabel" Content="未抽選" HorizontalAlignment="Left" Width="99" Margin="1,0,0,0" FontSize="18" FontFamily="Meiryo UI"/>
+				<Border BorderBrush="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" BorderThickness="1,0,0,0" HorizontalAlignment="Right" Width="150"/>
+				<Button x:Name="masterButton" Content="マスター抽選" HorizontalAlignment="Right" Margin="0,1,2,2" Width="147" Click="masterButton_Click" IsEnabled="False"/>
+			</Grid>
+			<Border BorderBrush="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" BorderThickness="2,1,2,2">
+			</Border>
+		</Grid>
+		<Grid x:Name="AnswersTimeGrid" Height="30" VerticalAlignment="Top" Margin="10,95,10,0">
+			<Label Content="回答時間" FontSize="18" FontFamily="Meiryo UI"/>
+			<Grid Margin="150,0,0,0">
+				<Border BorderBrush="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" BorderThickness="1,0,0,0"/>
+			</Grid>
+			<Border BorderBrush="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" BorderThickness="2"/>
+		</Grid>
+		<Grid Height="90" Margin="10,123,10,0" VerticalAlignment="Top">
+			<Label Content="回答タイマー" FontSize="18" FontFamily="Meiryo UI"/>
+			<Grid Margin="150,0,0,0">
+				<Border BorderBrush="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" BorderThickness="1,0,0,0"/>
+				<Button x:Name="AnswersTimerStartButton" Content="回答開始" Height="27" VerticalAlignment="Top" Margin="1,2,150,0" Click="AnswersTimerStartButton_Click"  IsEnabled="False"/>
+				<Border BorderBrush="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" BorderThickness="1,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="30" Width="150"/>
+				<Button x:Name="AnswersTimerResetButton" Content="回答タイマーリセット" HorizontalAlignment="Right" Margin="0,2,2,0" Width="147" Height="27" VerticalAlignment="Top" Click="AnswersTimerResetButton_Click"  IsEnabled="False"/>
+				<Border BorderBrush="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" BorderThickness="0,0,0,1" VerticalAlignment="Top" Height="30" Margin="0"/>
+				<Label x:Name="AnswersTimerLabel" Content="00:05:00.0000" Margin="1,30,2,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="36" FontFamily="Meiryo UI"/>
+			</Grid>
+			<Border BorderBrush="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" BorderThickness="2,2,2,2"/>
+		</Grid>
+		<Grid Height="90" Margin="10,211,10,0" VerticalAlignment="Top">
+			<Label Content="議論タイマー" FontSize="18" FontFamily="Meiryo UI"/>
+			<Grid Margin="150,0,0,0">
+				<Border BorderBrush="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" BorderThickness="1,0,0,0"/>
+				<Button x:Name="DiscussionTimerStartButton" Content="議論開始" Height="27" VerticalAlignment="Top" Margin="1,2,150,0" Click="DiscussionTimerStartButton_Click"  IsEnabled="False"/>
+				<Border BorderBrush="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" BorderThickness="1,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Top"  Height="30" Width="150"/>
+				<Button x:Name="DiscussionTimerResetButton" Content="議論タイマーリセット" HorizontalAlignment="Right" Margin="0,2,2,0" Width="147" Height="27" VerticalAlignment="Top" Click="DiscussionTimerResetButton_Click"  IsEnabled="False"/>
+				<Border BorderBrush="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" BorderThickness="0,0,0,1" VerticalAlignment="Top" Height="30" Margin="0"/>
+				<Label x:Name="DiscussionTimerLabel" Content="00:05:00.0000" Margin="1,30,2,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="36" FontFamily="Meiryo UI"/>
+			</Grid>
+			<Border BorderBrush="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" BorderThickness="2,2,2,2"/>
+		</Grid>
+	</Grid>
+</Window>
